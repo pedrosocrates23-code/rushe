@@ -18,6 +18,7 @@
     "@fontsource/bebas-neue": "^5.2.7",
     "@fontsource/outfit": "^5.2.8",
     "@tailwindcss/vite": "^4.2.1",
+    "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "astro": "^5.18.1",
     "class-variance-authority": "^0.7.1",
