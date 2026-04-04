@@ -3,6 +3,9 @@
    Mel & Âmbar / Fundo Escuro / Tipografia Monumental
    ═══════════════════════════════════════════════════════════════ */
 
+/* ── Utility ─────────────────────────────────────────────────── */
+html.no-scroll { overflow: hidden; }
+
 /* ── Design Tokens ───────────────────────────────────────────── */
 :root {
   /* Cores */

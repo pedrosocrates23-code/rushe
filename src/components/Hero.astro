@@ -211,12 +211,28 @@ const WA =
     if (!window.matchMedia("(hover: hover) and (min-width: 769px)").matches)
       return;
 
+    // Dimensões cacheadas — evita leitura geométrica a cada mousemove
+    let vw = innerWidth;
+    let vh = innerHeight;
+    window.addEventListener("resize", () => { vw = innerWidth; vh = innerHeight; }, { passive: true });
+
+    // rAF throttle — garante no máximo 1 write por frame, elimina reflow forçado
+    let rafId = 0;
+    let lastX = 0;
+    let lastY = 0;
+
     window.addEventListener(
       "mousemove",
       (e: MouseEvent) => {
-        const dx = e.clientX / innerWidth - 0.5;
-        const dy = e.clientY / innerHeight - 0.5;
-        content.style.transform = `translate(${-dx * 14}px,${-dy * 14}px)`;
+        lastX = e.clientX;
+        lastY = e.clientY;
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+          const dx = lastX / vw - 0.5;
+          const dy = lastY / vh - 0.5;
+          content.style.transform = `translate(${-dx * 14}px,${-dy * 14}px)`;
+          rafId = 0;
+        });
       },
       { passive: true }
     );
