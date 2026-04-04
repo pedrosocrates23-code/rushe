@@ -796,52 +796,9 @@ h6 {
   line-height: 1.7;
 }
 
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--s-4);
-  margin-top: var(--s-16);
-  padding: var(--s-8);
-  border: 1px solid rgba(239, 159, 39, 0.1);
-  border-radius: var(--radius-xl);
-  background: rgba(239, 159, 39, 0.03);
-}
-
-.metric-item {
-  text-align: center;
-  padding: var(--s-4);
-}
-
-.metric-number {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  color: var(--amber-500);
-  line-height: 1;
-  margin-bottom: var(--s-2);
-  letter-spacing: 0.02em;
-}
-
-.metric-label {
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
-
 @media (max-width: 768px) {
   .services-grid {
     grid-template-columns: 1fr;
-  }
-
-  .metrics-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .metrics-grid {
-    grid-template-columns: 1fr 1fr;
   }
 }
 

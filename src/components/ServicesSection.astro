@@ -22,12 +22,6 @@ const steps = [
   },
 ];
 
-const metrics = [
-  { number: "+180%", label: "Tráfego orgânico em 12 meses" },
-  { number: "3×", label: "Mais leads qualificados" },
-  { number: "8+", label: "Anos de experiência no setor" },
-  { number: "120+", label: "Clientes satisfeitos" },
-];
 ---
 
 <section
@@ -62,18 +56,5 @@ const metrics = [
       }
     </div>
 
-    <!-- 4 métricas -->
-    <div class="metrics-grid" role="list" aria-label="Resultados da Ruche">
-      {
-        metrics.map((m) => (
-          <div class="metric-item" role="listitem">
-            <p class="metric-number display" aria-label={m.number}>
-              {m.number}
-            </p>
-            <p class="metric-label">{m.label}</p>
-          </div>
-        ))
-      }
-    </div>
   </div>
 </section>
