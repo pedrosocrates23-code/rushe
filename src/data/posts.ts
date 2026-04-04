@@ -24,7 +24,7 @@ export interface Post {
   content: ContentBlock[];
 }
 
-const WA = "https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20SEO%20aliment%C3%ADcio";
+const WA = "https://wa.me/5561998642021?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20SEO%20aliment%C3%ADcio";
 
 export const posts: Post[] = [
   {
