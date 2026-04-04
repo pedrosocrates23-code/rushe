@@ -75,7 +75,7 @@ export const posts: Post[] = [
           "Responda TODOS os reviews (positivos e negativos) em até 24 horas",
           "Publique posts semanais com promoções e novidades",
           "Use os atributos corretos: aceita reservas, entrega, opções veganas, etc.",
-          "Adicione fotos profissionais dos pratos — imagens geram 42% mais pedidos de rota",
+          "Adicione fotos profissionais dos pratos: imagens geram 42% mais pedidos de rota",
         ],
       },
       {
@@ -133,7 +133,7 @@ export const posts: Post[] = [
     content: [
       {
         type: "paragraph",
-        html: "A indústria alimentícia tem desafios únicos no SEO. Ao contrário de negócios de serviço ou tecnologia, ela precisa se comunicar simultaneamente com <strong>distribuidores B2B</strong>, <strong>varejistas</strong> e <strong>consumidores finais</strong> — cada um com linguagem, intenção e canal diferentes.",
+        html: "A indústria alimentícia tem desafios únicos no SEO. Ao contrário de negócios de serviço ou tecnologia, ela precisa se comunicar simultaneamente com <strong>distribuidores B2B</strong>, <strong>varejistas</strong> e <strong>consumidores finais</strong>, cada um com linguagem, intenção e canal diferentes.",
       },
       {
         type: "heading2",
@@ -185,7 +185,7 @@ export const posts: Post[] = [
     title: "Pesquisa de Palavras-chave para o Setor Alimentício em 2025",
     titleSEO: "Palavras-chave para Alimentação 2025: Como Pesquisar | Ruche",
     excerpt:
-      "Metodologia completa para encontrar as melhores palavras-chave para negócios de alimentação do restaurante local à grande rede.",
+      "Metodologia completa para encontrar as melhores palavras-chave para negócios de alimentação, do restaurante local à grande rede.",
     description:
       "Aprenda a pesquisar palavras-chave eficazes para o setor alimentício em 2025, com ferramentas, métricas e exemplos práticos do segmento.",
     date: "2025-08-05",
@@ -225,7 +225,7 @@ export const posts: Post[] = [
       },
       {
         type: "content-highlight",
-        text: "Dica de especialista: pesquise palavras-chave de concorrentes que já ranqueiam bem. Se eles aparecem para uma keyword, é porque ela funciona no seu setor — e você pode fazer melhor.",
+        text: "Dica de especialista: pesquise palavras-chave de concorrentes que já ranqueiam bem. Se eles aparecem para uma keyword, é porque ela funciona no seu setor, e você pode fazer melhor.",
       },
       {
         type: "heading3",
