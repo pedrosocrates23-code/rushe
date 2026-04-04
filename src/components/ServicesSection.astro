@@ -1,0 +1,79 @@
+---
+const steps = [
+  {
+    num: "01",
+    title: "Diagnóstico Profundo",
+    text: "Auditamos seu site, seus concorrentes e as oportunidades reais do seu nicho alimentício. Nenhuma suposição — só dados.",
+  },
+  {
+    num: "02",
+    title: "Estratégia Customizada",
+    text: "Desenvolvemos um plano de SEO específico para o seu segmento: restaurante, delivery, indústria ou marca de alimentos.",
+  },
+  {
+    num: "03",
+    title: "Execução Técnica",
+    text: "Implementamos melhorias on-page, produção de conteúdo especializado, link building sectorial e otimizações técnicas.",
+  },
+  {
+    num: "04",
+    title: "Resultados Medidos",
+    text: "Monitoramento contínuo com relatórios mensais claros. Ajustamos a estratégia conforme os dados evoluem.",
+  },
+];
+
+const metrics = [
+  { number: "+180%", label: "Tráfego orgânico em 12 meses" },
+  { number: "3×", label: "Mais leads qualificados" },
+  { number: "8+", label: "Anos de experiência no setor" },
+  { number: "120+", label: "Clientes satisfeitos" },
+];
+---
+
+<section
+  class="section services-section"
+  aria-labelledby="services-title"
+  id="servicos"
+>
+  <div class="container">
+    <header class="section-header">
+      <p class="eyebrow">Como trabalhamos</p>
+      <h2 class="section-title display" id="services-title">
+        4 passos para<br />dominar o Google
+      </h2>
+      <p class="section-lead">
+        Nosso processo battle-tested, desenvolvido exclusivamente para negócios
+        do setor alimentício.
+      </p>
+    </header>
+
+    <!-- 4 steps em 2×2 -->
+    <div class="services-grid">
+      {
+        steps.map((step) => (
+          <article class="service-step">
+            <p class="service-step-number display" aria-hidden="true">
+              {step.num}
+            </p>
+            <h3 class="service-step-title">{step.title}</h3>
+            <p class="service-step-text">{step.text}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- 4 métricas -->
+    <div class="metrics-grid" role="list" aria-label="Resultados da Ruche">
+      {
+        metrics.map((m) => (
+          <div class="metric-item" role="listitem">
+            <p class="metric-number display" aria-label={m.number}>
+              {m.number}
+            </p>
+            <p class="metric-label">{m.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

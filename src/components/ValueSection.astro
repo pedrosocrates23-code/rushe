@@ -1,0 +1,69 @@
+---
+const cards = [
+  {
+    title: "SEO Local & Google Maps",
+    text: "Dominamos as buscas locais e o Google Maps para restaurantes e pontos físicos do setor alimentício, aumentando visitas e reservas.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+  },
+  {
+    title: "Conteúdo para Alimentação",
+    text: "Produzimos conteúdo especializado em receitas, tendências nutricionais e marketing de alimentos que ranqueia e converte.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+  },
+  {
+    title: "Link Building Sectorial",
+    text: "Construímos autoridade de domínio através de links de qualidade em sites de gastronomia, nutrição e indústria alimentar.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
+  },
+  {
+    title: "Auditoria Técnica Completa",
+    text: "Diagnóstico profundo de Core Web Vitals, indexação, estrutura técnica e oportunidades de melhoria específicas para seu segmento.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+  },
+  {
+    title: "Palavras-chave Estratégicas",
+    text: "Mapeamos oportunidades reais do setor alimentício: buscas locais, long-tails de alta conversão e termos sazonais do segmento.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>`,
+  },
+  {
+    title: "Relatórios & ROI Comprovado",
+    text: "Transparência total com dashboards mensais que mostram crescimento de tráfego, conversões e retorno sobre investimento.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+  },
+];
+---
+
+<section
+  class="section value-section hex-pattern"
+  aria-labelledby="value-title"
+  id="valor"
+>
+  <div class="container">
+    <header class="section-header">
+      <p class="eyebrow">Por que escolher a Ruche</p>
+      <h2 class="section-title display" id="value-title">
+        Expertise que<br />gera resultado
+      </h2>
+      <p class="section-lead">
+        Somos a única agência de SEO do Brasil especializada exclusivamente no
+        setor alimentício. Conhecemos seu mercado, sua linguagem e seus clientes.
+      </p>
+    </header>
+
+    <div class="value-grid" role="list">
+      {
+        cards.map((card) => (
+          <article class="value-card" role="listitem">
+            <div
+              class="value-icon"
+              aria-hidden="true"
+              set:html={card.icon}
+            />
+            <h3 class="value-card-title">{card.title}</h3>
+            <p class="value-card-text">{card.text}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

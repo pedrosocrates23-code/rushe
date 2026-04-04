@@ -1,0 +1,197 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: string;
+  pageSchema?: object[];
+  breadcrumbs?: { name: string; url: string }[];
+  bodyClass?: string;
+  includeFaq?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = "https://ruche.com.br/images/og-ruche.jpg",
+  ogType = "website",
+  pageSchema = [],
+  breadcrumbs,
+  bodyClass = "",
+  includeFaq = false,
+} = Astro.props;
+
+const SITE = "https://ruche.com.br";
+
+const schemas: object[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "LocalBusiness"],
+    "@id": `${SITE}/#organization`,
+    name: "Ruche",
+    url: SITE,
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE}/images/logo.svg`,
+      width: 200,
+      height: 60,
+    },
+    description:
+      "Agência de SEO especializada no setor alimentício — restaurantes, marcas de alimentos e indústria.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "São Paulo",
+      addressRegion: "SP",
+      addressCountry: "BR",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      availableLanguage: "Portuguese",
+    },
+    sameAs: [],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE}/#website`,
+    name: "Ruche — SEO Alimentício",
+    url: SITE,
+    publisher: { "@id": `${SITE}/#organization` },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE}/blog?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  },
+];
+
+if (breadcrumbs && breadcrumbs.length > 0) {
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Início", item: SITE },
+      ...breadcrumbs.map((b, i) => ({
+        "@type": "ListItem",
+        position: i + 2,
+        name: b.name,
+        item: b.url,
+      })),
+    ],
+  });
+}
+
+if (includeFaq) {
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "O que é SEO para o setor alimentício?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "SEO alimentício é a otimização de presença digital específica para restaurantes, marcas de alimentos e indústria alimentícia, com estratégias focadas em buscas locais, intenção de compra e conteúdo especializado no segmento.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Quanto tempo leva para ver resultados de SEO?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Os primeiros resultados orgânicos significativos aparecem entre 3-6 meses. Com estratégia contínua, o crescimento se consolida nos 12 meses seguintes, gerando ROI comprovável e crescimento sustentável.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "A Ruche atende todo o Brasil?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Sim, atendemos clientes em todo o território nacional com estratégias locais e nacionais customizadas para cada segmento do setor alimentício.",
+        },
+      },
+    ],
+  });
+}
+
+schemas.push(...pageSchema);
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#040200" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Preconnect para Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fontes — async load (não bloqueia render) + noscript fallback -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+      />
+    </noscript>
+
+    <!-- SEO primário -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="pt-BR" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Ruche — SEO Alimentício" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Schema.org JSON-LD -->
+    {
+      schemas.map((s) => (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(s)}
+        />
+      ))
+    }
+  </head>
+  <body class={bodyClass}>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    <slot />
+  </body>
+</html>

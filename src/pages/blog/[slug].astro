@@ -1,0 +1,224 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Nav from "@/components/Nav.astro";
+import Footer from "@/components/Footer.astro";
+import { posts, getPostBySlug, type Post } from "@/data/posts";
+
+export async function getStaticPaths() {
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const post = getPostBySlug(slug!) as Post;
+
+const SITE = "https://ruche.com.br";
+const WA =
+  "https://wa.me/5511999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20SEO%20aliment%C3%ADcio";
+
+function formatDate(iso: string): string {
+  return new Date(iso).toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+if (!post) {
+  return Astro.redirect("/blog", 302);
+}
+
+const blogPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.title,
+  description: post.description,
+  datePublished: post.date,
+  dateModified: post.dateModified,
+  author: {
+    "@type": "Organization",
+    name: post.author,
+    url: SITE,
+  },
+  publisher: {
+    "@id": `${SITE}/#organization`,
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `${SITE}/blog/${post.slug}`,
+  },
+  image: {
+    "@type": "ImageObject",
+    url: `${SITE}${post.image}`,
+    width: 1200,
+    height: 630,
+  },
+};
+---
+
+<Layout
+  title={post.titleSEO}
+  description={post.description}
+  canonical={`${SITE}/blog/${post.slug}`}
+  ogType="article"
+  ogImage={`${SITE}${post.image}`}
+  bodyClass="blog-post-body"
+  pageSchema={[blogPostingSchema]}
+  breadcrumbs={[
+    { name: "Blog", url: `${SITE}/blog` },
+    { name: post.title, url: `${SITE}/blog/${post.slug}` },
+  ]}
+>
+  <Nav />
+
+  <main id="main-content">
+    <!-- Post hero — fundo escuro -->
+    <section class="post-hero" aria-labelledby="post-title">
+      <div class="container">
+        <p class="post-category">{post.category}</p>
+        <h1 class="post-title" id="post-title">{post.title}</h1>
+        <div class="post-meta" role="contentinfo" aria-label="Metadados do artigo">
+          <span>{post.author}</span>
+          <span class="post-meta-sep" aria-hidden="true"></span>
+          <time datetime={post.date}>{formatDate(post.date)}</time>
+          <span class="post-meta-sep" aria-hidden="true"></span>
+          <span>{post.readTime} min de leitura</span>
+        </div>
+
+        <!-- Imagem destaque -->
+        <div
+          class="post-featured-img"
+          role="img"
+          aria-label={post.imageAlt}
+        >
+          <div
+            class="hex-pattern"
+            style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--dark-800) 0%,var(--dark-700) 100%);"
+            aria-hidden="true"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="60"
+              height="68"
+              viewBox="0 0 28 32"
+              fill="none"
+              aria-hidden="true"
+              style="opacity:0.2;"
+            >
+              <polygon
+                points="14,1.5 27,8.5 27,23.5 14,30.5 1,23.5 1,8.5"
+                fill="#EF9F27"
+              ></polygon>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Corpo do post — fundo branco, texto preto -->
+    <article class="post-body">
+      <div class="post-content" id="post-content">
+        {
+          post.content.map((block) => {
+            if (block.type === "paragraph" && block.html) {
+              return <p set:html={block.html} />;
+            }
+
+            if (block.type === "heading2" && block.text) {
+              return <h2>{block.text}</h2>;
+            }
+
+            if (block.type === "heading3" && block.text) {
+              return <h3>{block.text}</h3>;
+            }
+
+            if (block.type === "list" && block.items) {
+              return (
+                <ul>
+                  {block.items.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              );
+            }
+
+            if (block.type === "content-highlight" && block.text) {
+              return (
+                <div class="content-highlight" role="note">
+                  {block.text}
+                </div>
+              );
+            }
+
+            if (block.type === "inline-cta" && block.title) {
+              return (
+                <aside
+                  class="inline-cta"
+                  aria-label="Chamada para ação"
+                >
+                  <div class="inline-cta-icon" aria-hidden="true">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="8" x2="12" y2="12" />
+                      <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                  </div>
+                  <div class="inline-cta-body">
+                    <p class="inline-cta-title">{block.title}</p>
+                    <p class="inline-cta-text">{block.text}</p>
+                    <a
+                      href={WA}
+                      class="btn btn-solid"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {block.buttonText ?? "Falar com especialista"}
+                    </a>
+                  </div>
+                </aside>
+              );
+            }
+
+            return null;
+          })
+        }
+      </div>
+
+      <!-- Navegação entre posts -->
+      <nav
+        class="container"
+        style="max-width:720px; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #eee; display:flex; justify-content:space-between; align-items:center;"
+        aria-label="Navegação do blog"
+      >
+        <a
+          href="/blog"
+          style="font-family: var(--font-ui); font-size: 0.875rem; color: #555; text-decoration:none; display:flex; align-items:center; gap:0.5rem;"
+        >
+          ← Todos os artigos
+        </a>
+        <a
+          href={WA}
+          class="btn btn-solid"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="font-size: 0.85rem; padding: 0.5em 1.2em;"
+        >
+          Fale Conosco
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>
