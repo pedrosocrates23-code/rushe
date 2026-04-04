@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 interface Props {
   title: string;
@@ -193,5 +194,6 @@ schemas.push(...pageSchema);
   <body class={bodyClass}>
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     <slot />
+    <SpeedInsights />
   </body>
 </html>
