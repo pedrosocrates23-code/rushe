@@ -185,7 +185,7 @@ export const posts: Post[] = [
     title: "Pesquisa de Palavras-chave para o Setor Alimentício em 2025",
     titleSEO: "Palavras-chave para Alimentação 2025: Como Pesquisar | Ruche",
     excerpt:
-      "Metodologia completa para encontrar as melhores palavras-chave para negócios de alimentação — do restaurante local à grande rede.",
+      "Metodologia completa para encontrar as melhores palavras-chave para negócios de alimentação do restaurante local à grande rede.",
     description:
       "Aprenda a pesquisar palavras-chave eficazes para o setor alimentício em 2025, com ferramentas, métricas e exemplos práticos do segmento.",
     date: "2025-08-05",
