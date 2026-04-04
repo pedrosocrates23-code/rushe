@@ -2,6 +2,31 @@
 import "../styles/global.css";
 import SpeedInsights from "@vercel/speed-insights/astro";
 
+// Fontes críticas — preload elimina CLS e melhora LCP
+import bebasNeueWoff2 from "@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2?url";
+import barlowC700Woff2 from "@fontsource/barlow-condensed/files/barlow-condensed-latin-700-normal.woff2?url";
+import barlowC400Woff2 from "@fontsource/barlow-condensed/files/barlow-condensed-latin-400-normal.woff2?url";
+import barlowC300Woff2 from "@fontsource/barlow-condensed/files/barlow-condensed-latin-300-normal.woff2?url";
+import barlowC500Woff2 from "@fontsource/barlow-condensed/files/barlow-condensed-latin-500-normal.woff2?url";
+import barlowC600Woff2 from "@fontsource/barlow-condensed/files/barlow-condensed-latin-600-normal.woff2?url";
+import outfitWoff2 from "@fontsource/outfit/files/outfit-latin-400-normal.woff2?url";
+import outfit300Woff2 from "@fontsource/outfit/files/outfit-latin-300-normal.woff2?url";
+import outfit500Woff2 from "@fontsource/outfit/files/outfit-latin-500-normal.woff2?url";
+import outfit600Woff2 from "@fontsource/outfit/files/outfit-latin-600-normal.woff2?url";
+
+const fontFaceCSS = `
+@font-face{font-family:"Bebas Neue";font-style:normal;font-weight:400;font-display:optional;src:url(${bebasNeueWoff2}) format('woff2')}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:300;font-display:optional;src:url(${barlowC300Woff2}) format('woff2')}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:400;font-display:optional;src:url(${barlowC400Woff2}) format('woff2')}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:500;font-display:optional;src:url(${barlowC500Woff2}) format('woff2')}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:600;font-display:optional;src:url(${barlowC600Woff2}) format('woff2')}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:optional;src:url(${barlowC700Woff2}) format('woff2')}
+@font-face{font-family:"Outfit";font-style:normal;font-weight:300;font-display:optional;src:url(${outfit300Woff2}) format('woff2')}
+@font-face{font-family:"Outfit";font-style:normal;font-weight:400;font-display:optional;src:url(${outfitWoff2}) format('woff2')}
+@font-face{font-family:"Outfit";font-style:normal;font-weight:500;font-display:optional;src:url(${outfit500Woff2}) format('woff2')}
+@font-face{font-family:"Outfit";font-style:normal;font-weight:600;font-display:optional;src:url(${outfit600Woff2}) format('woff2')}
+`;
+
 interface Props {
   title: string;
   description: string;
@@ -133,6 +158,13 @@ schemas.push(...pageSchema);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#040200" />
     <meta name="robots" content="index, follow" />
+
+    <!-- Fontes: @font-face com font-display:optional → zero CLS -->
+    <style set:html={fontFaceCSS}></style>
+
+    <!-- Preload fontes críticas above-the-fold (Bebas Neue + Barlow 700) -->
+    <link rel="preload" href={bebasNeueWoff2} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={barlowC700Woff2} as="font" type="font/woff2" crossorigin />
 
     <!-- SEO primário -->
     <title>{title}</title>
