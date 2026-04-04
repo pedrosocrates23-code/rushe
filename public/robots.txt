@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://ruche.com.br/sitemap.xml
 Sitemap: https://ruche.com.br/sitemap-index.xml
