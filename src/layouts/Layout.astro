@@ -134,24 +134,6 @@ schemas.push(...pageSchema);
     <meta name="theme-color" content="#040200" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Preconnect para Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Fontes — async load (não bloqueia render) + noscript fallback -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
-      />
-    </noscript>
-
     <!-- SEO primário -->
     <title>{title}</title>
     <meta name="description" content={description} />
