@@ -15,13 +15,13 @@ export const faqItems: FaqItem[] = [
     id: "faq-tempo-resultado",
     question: "Em quanto tempo vejo resultado de SEO no setor alimentício?",
     answer:
-      "Os primeiros sinais aparecem entre 60 e 90 dias: melhora de posições em palavras-chave de cauda longa e aumento de cliques no Google Meu Negócio. Resultados orgânicos expressivos — crescimento de tráfego acima de 30% — consolidam-se entre 4 e 6 meses com estratégia contínua. O setor alimentício tem sazonalidade forte, por isso planejamos picos como Dia dos Namorados e festas de fim de ano desde o início.",
+      "Os primeiros sinais aparecem entre 60 e 90 dias: melhora de posições em palavras-chave de cauda longa e aumento de cliques no Google Meu Negócio. Resultados orgânicos expressivos, com crescimento de tráfego acima de 30%, consolidam-se entre 4 e 6 meses com estratégia contínua. O setor alimentício tem sazonalidade forte, por isso planejamos picos como Dia dos Namorados e festas de fim de ano desde o início.",
   },
   {
     id: "faq-ifood",
     question: "Preciso de SEO se meu restaurante já está no iFood?",
     answer:
-      "Sim. O iFood controla a visibilidade dentro do próprio app e cobra comissão por pedido; o SEO garante que você apareça diretamente no Google — sem intermediário e sem taxa. Clientes que buscam 'restaurante japonês perto de mim' ou 'delivery de pizza em [bairro]' chegam pelo Google antes de abrir qualquer app. Ter presença otimizada nos dois canais maximiza seu alcance e reduz dependência de uma única plataforma.",
+      "Sim. O iFood controla a visibilidade dentro do próprio app e cobra comissão por pedido; o SEO garante que você apareça diretamente no Google, sem intermediário e sem taxa. Clientes que buscam 'restaurante japonês perto de mim' ou 'delivery de pizza em [bairro]' chegam pelo Google antes de abrir qualquer app. Ter presença otimizada nos dois canais maximiza seu alcance e reduz dependência de uma única plataforma.",
   },
   {
     id: "faq-delivery",
