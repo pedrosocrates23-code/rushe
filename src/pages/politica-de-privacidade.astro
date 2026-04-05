@@ -1,0 +1,282 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Nav from "@/components/Nav.astro";
+import Footer from "@/components/Footer.astro";
+
+const SITE = "https://ruche.com.br";
+const lastUpdate = "05 de abril de 2025";
+---
+
+<Layout
+  title="Política de Privacidade | Ruche"
+  description="Saiba como a Ruche coleta, usa e protege seus dados pessoais em conformidade com a LGPD (Lei Geral de Proteção de Dados)."
+  canonical={`${SITE}/politica-de-privacidade`}
+  breadcrumbs={[{ name: "Política de Privacidade", url: `${SITE}/politica-de-privacidade` }]}
+>
+  <Nav />
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="page-hero" aria-labelledby="privacy-hero-title">
+      <div
+        class="hex-pattern"
+        style="position:absolute;inset:0;opacity:0.4;pointer-events:none;"
+        aria-hidden="true"
+      ></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <p class="eyebrow" style="justify-content:center; margin-bottom:1rem;">
+          Transparência e segurança
+        </p>
+        <h1 class="page-hero-title display" id="privacy-hero-title">
+          Política de Privacidade
+        </h1>
+        <p class="page-hero-lead">
+          Última atualização: {lastUpdate}
+        </p>
+      </div>
+    </section>
+
+    <!-- Conteúdo -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="privacy-content">
+
+          <p class="privacy-intro">
+            A <strong>Ruche</strong> respeita sua privacidade e está comprometida com a proteção
+            dos seus dados pessoais. Esta Política descreve como coletamos, usamos, armazenamos e
+            protegemos suas informações, em conformidade com a
+            <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong>.
+          </p>
+
+          <!-- 1 -->
+          <div class="privacy-section">
+            <h2>1. Quem somos</h2>
+            <p>
+              A Ruche é uma agência de SEO especializada no setor alimentício, com sede em
+              São Paulo, SP, Brasil. Para dúvidas sobre esta Política, entre em contato pelo
+              e-mail <a href="mailto:contato@ruche.com.br">contato@ruche.com.br</a>.
+            </p>
+          </div>
+
+          <!-- 2 -->
+          <div class="privacy-section">
+            <h2>2. Dados que coletamos</h2>
+            <p>Coletamos apenas os dados que você nos fornece voluntariamente:</p>
+            <ul>
+              <li><strong>Formulário de contato:</strong> nome, e-mail, telefone/WhatsApp, tipo de negócio e mensagem.</li>
+              <li><strong>Dados de navegação:</strong> páginas visitadas, tempo de permanência e origem do acesso, coletados de forma agregada e anônima pelo Vercel Analytics.</li>
+            </ul>
+            <p>
+              Não coletamos dados sensíveis (saúde, origem racial, convicções religiosas, etc.)
+              nem dados de menores de 18 anos.
+            </p>
+          </div>
+
+          <!-- 3 -->
+          <div class="privacy-section">
+            <h2>3. Como usamos seus dados</h2>
+            <p>Os dados do formulário de contato são utilizados exclusivamente para:</p>
+            <ul>
+              <li>Responder à sua solicitação e oferecer uma proposta personalizada;</li>
+              <li>Entrar em contato por e-mail ou WhatsApp, conforme informado por você;</li>
+              <li>Melhorar nossos serviços com base no perfil dos clientes que nos contactam.</li>
+            </ul>
+            <p>
+              Os dados de navegação são usados para analisar o desempenho do site e
+              aprimorar a experiência do usuário. Nunca vendemos ou compartilhamos seus
+              dados com terceiros para fins comerciais.
+            </p>
+          </div>
+
+          <!-- 4 -->
+          <div class="privacy-section">
+            <h2>4. Armazenamento dos dados</h2>
+            <p>
+              Os dados enviados pelo formulário de contato são armazenados em uma planilha
+              privada no <strong>Google Sheets</strong>, acessível apenas pela equipe da Ruche,
+              via Google Apps Script. O Google LLC processa esses dados em conformidade com
+              sua própria política de privacidade e os termos do GDPR/LGPD.
+            </p>
+            <p>
+              Os dados de navegação são processados pelo <strong>Vercel Analytics</strong>,
+              que não utiliza cookies e não rastreia usuários individualmente.
+            </p>
+          </div>
+
+          <!-- 5 -->
+          <div class="privacy-section">
+            <h2>5. Cookies</h2>
+            <p>
+              Este site <strong>não utiliza cookies de rastreamento ou publicidade</strong>.
+              O Vercel Analytics coleta métricas de desempenho de forma anônima, sem
+              identificar o visitante individualmente e sem armazenar cookies no seu
+              dispositivo.
+            </p>
+          </div>
+
+          <!-- 6 -->
+          <div class="privacy-section">
+            <h2>6. Compartilhamento de dados</h2>
+            <p>Seus dados pessoais podem ser acessados por:</p>
+            <ul>
+              <li><strong>Equipe interna da Ruche</strong>, para responder ao seu contato;</li>
+              <li><strong>Google LLC</strong>, como provedor de infraestrutura (Google Sheets e Apps Script), sujeita à política de privacidade do Google;</li>
+              <li><strong>Vercel Inc.</strong>, como provedor de hospedagem e analytics anônimo.</li>
+            </ul>
+            <p>
+              Não compartilhamos seus dados com outras empresas, parceiros ou anunciantes.
+            </p>
+          </div>
+
+          <!-- 7 -->
+          <div class="privacy-section">
+            <h2>7. Prazo de retenção</h2>
+            <p>
+              Mantemos seus dados de contato pelo tempo necessário para atender à sua
+              solicitação e, caso haja relação comercial, pelo período exigido pela
+              legislação fiscal e contábil brasileira. Após esse prazo, os dados são
+              excluídos de forma segura.
+            </p>
+          </div>
+
+          <!-- 8 -->
+          <div class="privacy-section">
+            <h2>8. Seus direitos (LGPD)</h2>
+            <p>
+              Nos termos da LGPD, você tem os seguintes direitos em relação aos seus dados
+              pessoais:
+            </p>
+            <ul>
+              <li><strong>Acesso:</strong> saber quais dados temos sobre você;</li>
+              <li><strong>Correção:</strong> solicitar a correção de dados incompletos ou incorretos;</li>
+              <li><strong>Exclusão:</strong> pedir a remoção dos seus dados;</li>
+              <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado;</li>
+              <li><strong>Revogação do consentimento:</strong> retirar seu consentimento a qualquer momento;</li>
+              <li><strong>Oposição:</strong> opor-se ao tratamento em casos de descumprimento da LGPD.</li>
+            </ul>
+            <p>
+              Para exercer qualquer um desses direitos, envie um e-mail para
+              <a href="mailto:contato@ruche.com.br">contato@ruche.com.br</a> com o assunto
+              "Solicitação LGPD". Responderemos em até 15 dias úteis.
+            </p>
+          </div>
+
+          <!-- 9 -->
+          <div class="privacy-section">
+            <h2>9. Segurança</h2>
+            <p>
+              Adotamos medidas técnicas e organizacionais adequadas para proteger seus
+              dados contra acesso não autorizado, alteração, divulgação ou destruição.
+              O site utiliza HTTPS com certificado SSL e as integrações com terceiros
+              (Google, Vercel) são feitas via APIs seguras com autenticação.
+            </p>
+          </div>
+
+          <!-- 10 -->
+          <div class="privacy-section">
+            <h2>10. Alterações nesta Política</h2>
+            <p>
+              Esta Política pode ser atualizada periodicamente. A data da última revisão
+              está indicada no topo da página. Recomendamos que você a consulte
+              regularmente.
+            </p>
+          </div>
+
+          <!-- 11 -->
+          <div class="privacy-section">
+            <h2>11. Contato</h2>
+            <p>
+              Em caso de dúvidas, solicitações ou reclamações relacionadas a esta Política
+              ou ao tratamento dos seus dados, entre em contato:
+            </p>
+            <ul>
+              <li>
+                <strong>E-mail:</strong>
+                <a href="mailto:contato@ruche.com.br">contato@ruche.com.br</a>
+              </li>
+              <li>
+                <strong>WhatsApp:</strong>
+                <a href="https://wa.me/5561998642021" target="_blank" rel="noopener noreferrer">
+                  +55 (61) 9 9864-2021
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .privacy-content {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .privacy-intro {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .privacy-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .privacy-section h2 {
+    font-family: var(--font-condensed);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .privacy-section p {
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+  }
+
+  .privacy-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0.75rem;
+  }
+
+  .privacy-section ul li {
+    color: var(--text-secondary);
+    line-height: 1.75;
+    padding-left: 1.25rem;
+    position: relative;
+    margin-bottom: 0.4rem;
+  }
+
+  .privacy-section ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--amber-500);
+  }
+
+  .privacy-section a {
+    color: var(--amber-500);
+    text-decoration: none;
+  }
+
+  .privacy-section a:hover {
+    text-decoration: underline;
+  }
+</style>

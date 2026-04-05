@@ -281,23 +281,51 @@ const businessTypes = [
 </Layout>
 
 <script>
-  // Redirecionamento para WhatsApp ao submeter formulário
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzlZJp3DZ8g5wEkMc0VdQ2Lii8pwdxnGp17duN8Nby826g5OX1PQFPufME7qYglGULp/exec";
+
   const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const submitBtn = document.getElementById("form-submit") as HTMLButtonElement | null;
 
-  form?.addEventListener("submit", (e) => {
+  form?.addEventListener("submit", async (e) => {
     e.preventDefault();
+    if (!form) return;
 
-    const name = (form.querySelector("#name") as HTMLInputElement)?.value ?? "";
-    const email = (form.querySelector("#email") as HTMLInputElement)?.value ?? "";
-    const businessType =
-      (form.querySelector("#business-type") as HTMLSelectElement)?.value ?? "";
-    const message =
-      (form.querySelector("#message") as HTMLTextAreaElement)?.value ?? "";
+    const name = (form.querySelector("#name") as HTMLInputElement)?.value.trim() ?? "";
+    const email = (form.querySelector("#email") as HTMLInputElement)?.value.trim() ?? "";
+    const phone = (form.querySelector("#phone") as HTMLInputElement)?.value.trim() ?? "";
+    const businessType = (form.querySelector("#business-type") as HTMLSelectElement)?.value ?? "";
+    const message = (form.querySelector("#message") as HTMLTextAreaElement)?.value.trim() ?? "";
 
-    const text = encodeURIComponent(
-      `Olá! Meu nome é ${name}.\nE-mail: ${email}\nTipo de negócio: ${businessType}\n\n${message}`
-    );
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando...";
+    }
 
-    window.open(`https://wa.me/5561998642021?text=${text}`, "_blank");
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, businessType, message }),
+      });
+
+      // Sucesso
+      form.innerHTML = `
+        <div style="text-align:center;padding:3rem 1rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#EF9F27" stroke-width="2" style="margin-bottom:1rem;" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <h3 style="color:var(--text-primary);margin-bottom:0.75rem;">Mensagem enviada!</h3>
+          <p style="color:var(--text-secondary);">Nossa equipe entrará em contato em breve. Você também pode nos chamar pelo WhatsApp.</p>
+        </div>
+      `;
+    } catch {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Enviar Mensagem";
+      }
+      alert("Erro ao enviar. Por favor, tente novamente ou nos contate pelo WhatsApp.");
+    }
   });
 </script>
