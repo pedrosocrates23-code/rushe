@@ -37,7 +37,6 @@ interface Props {
   pageSchema?: object[];
   breadcrumbs?: { name: string; url: string }[];
   bodyClass?: string;
-  includeFaq?: boolean;
 }
 
 const {
@@ -49,7 +48,6 @@ const {
   pageSchema = [],
   breadcrumbs,
   bodyClass = "",
-  includeFaq = false,
 } = Astro.props;
 
 const SITE = "https://ruche.com.br";
@@ -116,39 +114,6 @@ if (breadcrumbs && breadcrumbs.length > 0) {
   });
 }
 
-if (includeFaq) {
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "O que é SEO para o setor alimentício?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "SEO alimentício é a otimização de presença digital específica para restaurantes, marcas de alimentos e indústria alimentícia, com estratégias focadas em buscas locais, intenção de compra e conteúdo especializado no segmento.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Quanto tempo leva para ver resultados de SEO?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Os primeiros resultados orgânicos significativos aparecem entre 3-6 meses. Com estratégia contínua, o crescimento se consolida nos 12 meses seguintes, gerando ROI comprovável e crescimento sustentável.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "A Ruche atende todo o Brasil?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Sim, atendemos clientes em todo o território nacional com estratégias locais e nacionais customizadas para cada segmento do setor alimentício.",
-        },
-      },
-    ],
-  });
-}
-
 schemas.push(...pageSchema);
 ---
 
@@ -206,6 +171,9 @@ schemas.push(...pageSchema);
         />
       ))
     }
+
+    <!-- Slot para schemas e meta extras injetados por página -->
+    <slot name="head" />
   </head>
   <body class={bodyClass}>
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>

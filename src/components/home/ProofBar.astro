@@ -1,0 +1,85 @@
+---
+// TODO: substituir todos os valores abaixo por dados reais auditáveis antes de publicar
+const metrics = [
+  {
+    value: "100%",
+    label: "Foco no setor alimentício",
+    // TODO: este é o único dado fixo — agência exclusivamente alimentícia
+  },
+  {
+    value: "+180%",
+    label: "Crescimento médio de tráfego",
+    // TODO: validar com média real dos últimos 12 meses dos clientes ativos
+  },
+  {
+    value: "30+",
+    label: "Clientes ativos",
+    // TODO: substituir pelo número atual de clientes em contrato
+  },
+  {
+    value: "3+",
+    label: "Anos de operação",
+    // TODO: confirmar data de fundação da agência
+  },
+];
+---
+
+<section class="proof-bar" aria-label="Números da Ruche em destaque">
+  <div class="container">
+    <dl class="proof-grid">
+      {
+        metrics.map((m) => (
+          <div class="proof-item">
+            <dt class="proof-value display">{m.value}</dt>
+            <dd class="proof-label">{m.label}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<style>
+  .proof-bar {
+    background: var(--dark-900);
+    border-top: 1px solid rgba(239, 159, 39, 0.12);
+    border-bottom: 1px solid rgba(239, 159, 39, 0.12);
+    padding-block: var(--s-10);
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--s-6);
+  }
+
+  .proof-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--s-2);
+    padding: var(--s-4);
+  }
+
+  .proof-value {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    color: var(--amber-500);
+    line-height: 1;
+  }
+
+  .proof-label {
+    font-family: var(--font-ui);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 480px) {
+    .proof-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

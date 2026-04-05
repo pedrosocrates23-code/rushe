@@ -1,0 +1,161 @@
+---
+import { verticals } from "@/data/verticals";
+---
+
+<section
+  class="section verticals-section"
+  aria-labelledby="verticals-title"
+  id="segmentos"
+>
+  <div class="container">
+    <header class="section-header">
+      <p class="eyebrow">Segmentos que atendemos</p>
+      <h2 class="section-title display" id="verticals-title">
+        Especialistas<br />no seu nicho
+      </h2>
+      <p class="section-lead">
+        Cada segmento alimentício tem buscas, concorrentes e comportamentos
+        únicos. Nossas estratégias são construídas para o seu mercado específico.
+      </p>
+    </header>
+
+    <div class="verticals-grid" role="list">
+      {
+        verticals.map((v) => (
+          <article class="vertical-card" role="listitem">
+            <div class="vertical-icon" aria-hidden="true" set:html={v.icon} />
+            <h3 class="vertical-title">{v.title}</h3>
+            <p class="vertical-segment">{v.segment}</p>
+            <ul class="vertical-points" aria-label={`Detalhes sobre ${v.title}`}>
+              <li class="vertical-point vertical-point--problem">
+                <span class="vertical-point-label" aria-hidden="true">Problema</span>
+                {v.problem}
+              </li>
+              <li class="vertical-point vertical-point--action">
+                <span class="vertical-point-label" aria-hidden="true">O que fazemos</span>
+                {v.action}
+              </li>
+              <li class="vertical-point vertical-point--result">
+                <span class="vertical-point-label" aria-hidden="true">Resultado</span>
+                {v.result}
+              </li>
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .verticals-section {
+    background: var(--dark-900);
+    overflow: hidden;
+  }
+
+  .verticals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--s-6);
+  }
+
+  .vertical-card {
+    padding: var(--s-8) var(--s-6);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(239, 159, 39, 0.1);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    transition:
+      border-color var(--dur-base) var(--ease-out),
+      transform var(--dur-base) var(--ease-out),
+      background var(--dur-base) var(--ease-out);
+  }
+
+  .vertical-card:hover {
+    border-color: rgba(239, 159, 39, 0.3);
+    transform: translateY(-4px);
+    background: rgba(239, 159, 39, 0.03);
+  }
+
+  .vertical-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(239, 159, 39, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--amber-500);
+    flex-shrink: 0;
+  }
+
+  .vertical-title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-top: var(--s-2);
+  }
+
+  .vertical-segment {
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber-700);
+    margin-bottom: var(--s-2);
+  }
+
+  .vertical-points {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .vertical-point {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.65;
+    padding-left: var(--s-4);
+    border-left: 2px solid transparent;
+  }
+
+  .vertical-point--problem {
+    border-left-color: rgba(239, 159, 39, 0.2);
+  }
+
+  .vertical-point--action {
+    border-left-color: rgba(239, 159, 39, 0.45);
+  }
+
+  .vertical-point--result {
+    border-left-color: var(--amber-500);
+    color: var(--text-primary);
+  }
+
+  .vertical-point-label {
+    display: block;
+    font-family: var(--font-ui);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber-500);
+    margin-bottom: var(--s-1);
+  }
+
+  @media (max-width: 640px) {
+    .verticals-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

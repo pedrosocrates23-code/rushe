@@ -2,24 +2,32 @@
 import Layout from "@/layouts/Layout.astro";
 import Nav from "@/components/Nav.astro";
 import Hero from "@/components/Hero.astro";
+import ProofBar from "@/components/home/ProofBar.astro";
 import ValueSection from "@/components/ValueSection.astro";
+import VerticalsSection from "@/components/home/VerticalsSection.astro";
 import ServicesSection from "@/components/ServicesSection.astro";
+import FAQ from "@/components/home/FAQ.astro";
 import CTASection from "@/components/CTASection.astro";
 import Footer from "@/components/Footer.astro";
+import FAQSchema from "@/components/schema/FAQSchema.astro";
 ---
 
 <Layout
   title="Ruche: SEO para o Setor Alimentício | Restaurantes e Marcas"
   description="Agência de SEO para restaurantes, marcas de alimentos e indústria alimentícia. Aumente seu tráfego orgânico com estratégias comprovadas."
   canonical="https://ruche.com.br/"
-  includeFaq={true}
 >
+  <FAQSchema slot="head" />
+
   <Nav />
 
   <main id="main-content">
     <Hero />
+    <ProofBar />
     <ValueSection />
+    <VerticalsSection />
     <ServicesSection />
+    <FAQ />
     <CTASection />
   </main>
 

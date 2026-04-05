@@ -1,0 +1,130 @@
+---
+import { faqItems } from "@/data/faq";
+---
+
+<section
+  class="section faq-section"
+  aria-labelledby="faq-title"
+  id="faq"
+>
+  <div class="container">
+    <header class="section-header">
+      <p class="eyebrow">Perguntas frequentes</p>
+      <h2 class="section-title display" id="faq-title">
+        Tire suas<br />dúvidas
+      </h2>
+      <p class="section-lead">
+        Respostas diretas sobre SEO para o setor alimentício. Não encontrou o
+        que procura? Fale com a gente pelo WhatsApp.
+      </p>
+    </header>
+
+    <div class="faq-list">
+      {
+        faqItems.map((item) => (
+          <details class="faq-item" id={item.id}>
+            <summary class="faq-question">
+              <span class="faq-question-text">{item.question}</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    background: var(--dark-900);
+  }
+
+  .faq-list {
+    max-width: 780px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(239, 159, 39, 0.1);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: border-color var(--dur-base) var(--ease-out);
+  }
+
+  .faq-item[open] {
+    border-color: rgba(239, 159, 39, 0.3);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding: var(--s-5) var(--s-6);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: background var(--dur-fast);
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question:hover {
+    background: rgba(239, 159, 39, 0.04);
+  }
+
+  .faq-question-text {
+    font-family: var(--font-ui);
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    color: var(--amber-500);
+    transition: transform var(--dur-base) var(--ease-out);
+    display: flex;
+    align-items: center;
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 var(--s-6) var(--s-5);
+    border-top: 1px solid rgba(239, 159, 39, 0.08);
+  }
+
+  .faq-answer p {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.75;
+    padding-top: var(--s-4);
+  }
+</style>
