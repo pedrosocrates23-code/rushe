@@ -26,9 +26,9 @@ export const verticals: Vertical[] = [
     problem:
       "Sua operação depende do iFood e Rappi para gerar pedidos, pagando comissões de até 30% por entrega.",
     action:
-      "Construímos um cardápio digital otimizado para Google, aplicamos Core Web Vitals para carregamento rápido no mobile e posicionamos sua marca nas buscas de delivery local.",
+      "Otimizamos as páginas do seu site para as buscas de delivery local, aplicamos SEO técnico para melhorar Core Web Vitals no mobile e estruturamos os dados do negócio para aparecer com destaque no Google.",
     result:
-      "Canal próprio de pedidos que cresce mês a mês, reduzindo a dependência de marketplaces.",
+      "Mais clientes chegando pelo Google de forma orgânica, reduzindo a dependência de marketplaces e suas comissões.",
   },
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,

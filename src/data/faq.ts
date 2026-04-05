@@ -27,7 +27,7 @@ export const faqItems: FaqItem[] = [
     id: "faq-delivery",
     question: "SEO funciona para delivery?",
     answer:
-      "Funciona muito bem. Otimizamos seu cardápio digital para aparecer nas buscas do Google, estruturamos dados com schema Restaurant para que horários, endereço e avaliações apareçam direto na SERP, e cuidamos da velocidade do site (Core Web Vitals) para que o pedido online aconteça sem fricção. Clientes que chegam por busca orgânica convertem até 3× mais do que os oriundos de anúncios pagos.",
+      "Funciona muito bem. Otimizamos as páginas do seu site para aparecer nas buscas de delivery local, estruturamos dados com schema Restaurant para que horários, endereço e avaliações apareçam direto na SERP, e auditamos a velocidade das páginas (Core Web Vitals) para garantir boa experiência no mobile. Clientes que chegam por busca orgânica convertem até 3× mais do que os oriundos de anúncios pagos.",
   },
   {
     id: "faq-incluso",
