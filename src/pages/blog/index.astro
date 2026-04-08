@@ -37,15 +37,32 @@ function formatDate(iso: string): string {
           class="eyebrow"
           style="justify-content:center; margin-bottom:1rem;"
         >
-          Conteúdo especializado
+          Hub editorial · SEO Alimentício
         </p>
         <h1 class="page-hero-title display" id="blog-hero-title">
-          Blog da Ruche
+          Blog de SEO para o Setor Alimentício
         </h1>
         <p class="page-hero-lead">
-          Estratégias, tendências e casos práticos de SEO para o universo
-          alimentício. Conteúdo criado por especialistas do setor.
+          SEO alimentício é a aplicação de Search Engine Optimization a
+          restaurantes, marcas de alimentos, indústrias e operações de delivery —
+          três frentes com lógicas de busca distintas: <strong>SEO local</strong>
+          para estabelecimentos físicos, <strong>SEO de conteúdo</strong> para
+          marcas com distribuição nacional e <strong>SEO técnico</strong> para
+          catálogos B2B e e-commerces de alimentos.
         </p>
+        <p class="page-hero-lead dek-sub">
+          Aqui na <strong>Ruche</strong>, agência especializada exclusivamente no
+          setor alimentício, publicamos guias práticos, frameworks aplicados e
+          análises de SERP do nicho food no Brasil. Conteúdo produzido por
+          especialistas que operam diariamente com restaurantes, marcas e
+          indústrias de alimentos — não generalistas.
+        </p>
+        <ul class="hub-meta" aria-label="Sobre este blog">
+          <li><strong>Foco:</strong> SEO local, conteúdo e técnico para food service e indústria alimentícia</li>
+          <li><strong>Formato:</strong> guias completos, comparativos e análises de caso</li>
+          <li><strong>Público:</strong> donos de restaurante, gestores de marketing food e diretores de marca</li>
+          <li><strong>Atualização:</strong> conteúdo revisado conforme atualizações do Google e da ANVISA</li>
+        </ul>
       </div>
     </section>
 
@@ -191,6 +208,41 @@ function formatDate(iso: string): string {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
+  }
+
+  .dek-sub {
+    margin-top: 1rem;
+    opacity: 0.85;
+  }
+
+  .hub-meta {
+    list-style: none;
+    padding: 0;
+    margin: 1.75rem auto 0;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    text-align: left;
+  }
+
+  .hub-meta li {
+    font-size: 0.875rem;
+    color: var(--color-text-muted, #a0a0a0);
+    line-height: 1.5;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .hub-meta li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent, #EF9F27);
+  }
+
+  .hub-meta strong {
+    color: var(--color-text, #f0f0f0);
   }
 
   .section-blog-intro {
